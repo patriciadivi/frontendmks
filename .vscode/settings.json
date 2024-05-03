@@ -1,5 +1,8 @@
 {
   "cSpell.words": [
     "reduxjs"
+  ],
+  "conventionalCommits.scopes": [
+    "DEVELOPER"
   ]
 }

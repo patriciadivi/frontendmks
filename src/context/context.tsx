@@ -1,10 +1,6 @@
 'use client'
-
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
 
-// type ProductsProps = {
-//   product: object;
-// }
 type ProductsProps = {
   quantity?: number | undefined;
   id: number;
@@ -17,10 +13,6 @@ type ProductsProps = {
   updatedAt: string;
   total: number | 0;
 }
-
-// type QuantityProps = {
-//   valueQuantity: number;
-// }
 
 type ProductContextData = {
   setSelectsProducts: Dispatch<SetStateAction<ProductsProps[]>>;
@@ -38,8 +30,6 @@ export const Context = createContext({} as ProductContextData);
 export function ProductContext({ children }: PropsChildren) {
  const [selectsProducts, setSelectsProducts] = useState<ProductsProps[]>([]);
  const [quantityContext, setQuantityContext] = useState<number[]>([]);
-
- console.log('----> quantityContext', quantityContext)
 
  useEffect(() => {
   const productInfoJSON = localStorage.getItem('listCar');

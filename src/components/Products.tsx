@@ -1,7 +1,5 @@
 import Image from "next/image";
-// import { Card } from "./Card";
 import { Suspense } from "react";
-import { ShoppingBag } from "lucide-react";
 import { Button } from "./Button";
 
 type ProductsProps = {

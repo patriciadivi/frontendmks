@@ -35,19 +35,16 @@ export function Button({ product }: Props) {
     if (productInfoJSON) {
       const productInfo: Product[] = JSON.parse(productInfoJSON);
 
-      // Verifica se o produto já existe no carrinho
       const productExists = productInfo.some(item => item.id === product.id);
 
       if (productExists) {
         setShowAlert(true);
         handleAlert();
       } else {
-        // Se o produto não existe, adicione-o ao carrinho
         const mergedItems = [...productInfo, { ...product, quantity: 1, total: 0 }];
         saveProductsToLocalStorage(mergedItems);
       }
     } else {
-      // Se não houver produtos salvos, apenas salve o produto atual
       saveProductsToLocalStorage([{ ...product, quantity: 1, total: 0 }]);
     }
   };

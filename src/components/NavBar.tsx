@@ -76,7 +76,6 @@ export function NavBar() {
                        
                         <button 
                           className="absolute bottom-[82%] -right-1 bg-black pb-1 text-white rounded-full ont-medium leading-[1.25rem] shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:ml-2 sm:mt-2 sm:h-6 sm:w-6"
-                        // onClick={}
                         >
                           x
                         </button>
