@@ -5,10 +5,11 @@ import { ShoppingCart } from "lucide-react";
 import { Context } from "@/context/context";
 import Image from "next/image";
 import { Quantity } from "./Quantity";
+import { ProductsProps } from "@/interface/productsProps";
 
 
 export function NavBar() {
-  const { selectsProducts } = useContext(Context);
+  const { selectsProducts, setSelectsProducts } = useContext(Context);
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const total = selectsProducts.reduce((acc, item) => {
@@ -19,6 +20,14 @@ export function NavBar() {
     event.preventDefault();
     setIsNavOpen(!isNavOpen);
   };
+
+  const handleClosed = (item: ProductsProps) => {
+    const removerItemFromList = selectsProducts.filter((list) => {
+      return list.id !== item.id;
+    })
+    setSelectsProducts(removerItemFromList)
+    localStorage.setItem('listCar', JSON.stringify(removerItemFromList))
+  }
 
   return (
     <section className="w-screen h-28 bg-[#0F52BA] flex items-center">
@@ -76,6 +85,7 @@ export function NavBar() {
                        
                         <button 
                           className="absolute bottom-[82%] -right-1 bg-black pb-1 text-white rounded-full ont-medium leading-[1.25rem] shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:ml-2 sm:mt-2 sm:h-6 sm:w-6"
+                          onClick={() => handleClosed(item)}
                         >
                           x
                         </button>

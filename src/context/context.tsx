@@ -1,18 +1,6 @@
 'use client'
+import { ProductsProps } from "@/interface/productsProps";
 import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
-
-type ProductsProps = {
-  quantity?: number | undefined;
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updatedAt: string;
-  total: number | 0;
-}
 
 type ProductContextData = {
   setSelectsProducts: Dispatch<SetStateAction<ProductsProps[]>>;

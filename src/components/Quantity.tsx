@@ -1,24 +1,8 @@
 'use client'
 
 import { Context } from "@/context/context";
+import { Props } from "@/interface/product";
 import { MouseEvent, useContext, useEffect, useState } from "react";
-
-interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updatedAt: string;
-  quantity?: number | undefined;
-  total: number | 0;
-}
-
-interface Props {
-  product: Product;
-}
 
 export function Quantity({product}: Props) {
   const {selectsProducts, setSelectsProducts} = useContext(Context)

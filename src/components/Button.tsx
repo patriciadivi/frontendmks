@@ -2,29 +2,14 @@
 import React, { useState, useContext } from 'react';
 import { ShoppingBag } from "lucide-react";
 import { Context } from '@/context/context';
-
-interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updatedAt: string;
-  quantity?: number | undefined;
-  total: number | 0;
-}
-
-interface Props {
-  product: Product;
-}
+import { Props } from '@/interface/product';
+import { ProductsProps } from '@/interface/productsProps';
 
 export function Button({ product }: Props) {
   const [showAlert, setShowAlert] = useState<boolean>(false);
   const { setSelectsProducts } = useContext(Context);
 
-  const saveProductsToLocalStorage = (productList: Product[]) => {
+  const saveProductsToLocalStorage = (productList: ProductsProps[]) => {
     setSelectsProducts(productList);
     localStorage.setItem('listCar', JSON.stringify(productList));
   };
@@ -33,7 +18,7 @@ export function Button({ product }: Props) {
     const productInfoJSON = localStorage.getItem('listCar');
 
     if (productInfoJSON) {
-      const productInfo: Product[] = JSON.parse(productInfoJSON);
+      const productInfo: ProductsProps[] = JSON.parse(productInfoJSON);
 
       const productExists = productInfo.some(item => item.id === product.id);
 
